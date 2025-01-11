@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>jinja</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">ST3.4-Flask App</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/About">about <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/jinja">Jinja <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                            <a class="nav-link" href="/Product">Product <span class="sr-only">(current)</span></a>
+                        </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <hr width="50%" color="green" size="50px" />
+                <h4>1 output</h4>
+                {{ "Hello Theara" }}
+
+            <hr width="50%" color="green" size="50px" />
+                    <br>
+                    <h4>2 loop</h4>
+                    {% for foo in range(2) %}
+                        Theara
+                        <br>
+                    {% endfor %}
+
+            <hr width="50%" color="green" size="50px" />
+                    <br>
+                    <h4>3 operater</h4>
+                    {{ 2 + 3 }}
+                    <br>
+                    {{ 8>10 }}
+                    <br>
+                    {{ 8<10 }}
+                    <br>
+
+            <hr width="50%" color="green" size="50px" />
+                    <h4>4 upper lower</h4>
+                    {{ "Hell Theara" | upper}}
+                    <br>
+                    {{ "Hell Theara" | lower}}
+                    <br>
+
+            <hr width="50%" color="green" size="50px" />
+                    <h4>5 Whitespace Control or strip all whitespace </h4>
+                     <br>
+                    my name is Rom {{-"Theara" }}<br>
+                    I am {{ 2 -}} 0
+                    <hr>
+            <hr width="50%" color="green" size="50px" />
+
+                    <h4>5 Variable declaration</h4>
+
+                    {% set a =10 %}<br>
+                    {{ a }}
+                    <hr>
+            <hr width="50%" color="green" size="50px" />
+                    <h3>6 Blok massage</h3>
+                    {% set message %}
+                    khwehfkferksfasdfsadfsdfsfasdf3456789
+                    {% endset %}
+                    {{ message }}
+                    <hr>
+
+            <hr width="50%" color="green" size="50px" />
+                    <h3>7 control steterment</h3>
+                    {% set b =20 %}<br>
+                    Control Statement <br>
+
+                    {% if a > b%}
+                        A bigger
+                    {% else%}
+                        B bigger
+                    {% endif %}
+
+
+            <hr width="50%" color="green" size="50px" />
+                <h3>8 Ternary Conditional</h3> <br>
+                    {% set output = "A bigger" if a > b else "B bigger" %}
+                    {{output }}
+
+
+            <hr width="50%" color="green" size="50px" />
+
+                <h3>9 String Concatenation</h3><br>
+                    {{ "It is" ~ a ~ " AM/PM" }}
+
+
+                <hr width="50%" color="green" size="50px" />
+
+                <h3>format date</h3> <br>
+                {{ now.strftime('%A-%b-%Y') }}
+                <hr>
+
+            <hr width="50%" color="green" size="50px" />
+                <h3>raw</h3>
+                {% raw %}
+                {% if x > 5 %}
+                    {{ x }}
+                test
+                {{ 'Wo ai ni' }}
+                {% endif %}fasfasdfs sdfsafsd
+                            {% set output = "A bigger" if a > b else "B bigger" %}
+                                    {{output }}
+                {{ input('hello world','from macro') }}
+                {% endraw %}
+
+
+            <hr width="50%" color="green" size="50px" />
+                            Student List <br>
+                <ul>
+                    {% for student in students %}
+                        <li>
+                             {{ loop.index }}. Name: {{ student.name }}<br>
+                             {{ loop.index }}. Age: {{ student.age }}<br>
+                             {{ loop.index }}. Gender: {{ student.gender }}<br>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <hr>
+
+            <hr width="50%" color="green" size="50px" />
+
+                            with function <br>
+
+                {% with %}
+                  {% set total_students = students | length %}
+                  Total students: {{ total_students }}
+                {% endwith %}
+
+                <hr>
+
+            <hr width="50%" color="green" size="50px" />
+
+                            Multiple Variable declaration<br>
+                {% set a, b, c = 'A', 'B', 'C' %}
+                a: {{ a }}, b: {{ b }}, c: {{ c }}
+                <hr>
+<hr>
+<hr>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
